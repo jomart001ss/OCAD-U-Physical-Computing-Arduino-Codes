@@ -1,0 +1,58 @@
+
+int led = 13;
+int otherled = 12;
+int datled = 8;
+int buttonpin1 = 1;
+int buttonpin2 = 2;
+int buttonpin3 = 3;
+
+int buttonstate1 = 0;
+int buttonstate2 = 0;
+int buttonstate3 = 0;
+
+void setup() {                
+
+pinMode(led, OUTPUT);   
+pinMode(otherled, OUTPUT);
+pinMode(datled, OUTPUT);
+pinMode(buttonpin1, INPUT);
+
+}
+
+void loop() {
+ 
+  buttonstate1 = digitalRead(buttonpin1); 
+  
+  if (buttonstate1 == LOW) 
+  {
+    digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage during buttonstate1 voltage level)
+  delay(500);
+   digitalWrite(led, LOW); 
+   delay(500);
+   digitalWrite(otherled, HIGH);   // turn the LED on (HIGH is the voltage during buttonstate1 voltage level)
+  delay(500);
+   digitalWrite(otherled, LOW); 
+   delay(500);
+    digitalWrite(datled, HIGH);   // turn the LED on (HIGH is the voltage during buttonstate1 voltage level)
+  delay(500);
+   digitalWrite(datled, LOW); 
+   delay(500);
+  }
+  else if (buttonstate1 == HIGH) 
+  {
+    digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(200);
+   digitalWrite(led, LOW); 
+   delay(200);
+   digitalWrite(otherled, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(800);
+   digitalWrite(otherled, LOW); 
+   delay(800);
+    digitalWrite(datled, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(100);
+   digitalWrite(datled, LOW); 
+   delay(100);
+  }
+
+}
+  
