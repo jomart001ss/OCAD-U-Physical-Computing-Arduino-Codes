@@ -1,0 +1,37 @@
+
+int otherled = 12;
+int buttonpin1 = 1;
+
+int buttonstate1 = 0;
+
+void setup() {                
+  pinMode(led, OUTPUT);   
+pinMode(otherled, OUTPUT);
+pinMode(buttonpin1, INPUT);
+
+}
+
+void loop() {
+
+ 
+  buttonstate1 = digitalRead(buttonpin1); 
+  buttonstate2 = digitalRead(buttonpin2);
+  buttonstate3 = digitalRead(buttonpin3);
+  
+  if (buttonstate1 == LOW) 
+  {
+   digitalWrite(otherled, HIGH);  //make LED turn on faster (on LOW buttonstate1 voltage level)
+  delay(250);   // wait for half a second
+   digitalWrite(otherled, LOW); //make LED turn offf faser (on LOW buttonstate1 voltage level)
+   delay(250);   // wait for half a second
+  }
+  else
+  {
+     digitalWrite(otherled, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(500);               // wait for a second
+ digitalWrite(otherled, LOW);   // turn the LED off by making the voltage LOW
+  delay(500);  // wait for a second
+
+}
+}
+  
