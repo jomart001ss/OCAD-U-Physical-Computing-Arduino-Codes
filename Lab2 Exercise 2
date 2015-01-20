@@ -3,12 +3,8 @@ int led = 13;
 int otherled = 12;
 int datled = 8;
 int buttonpin1 = 1;
-int buttonpin2 = 2;
-int buttonpin3 = 3;
 
 int buttonstate1 = 0;
-int buttonstate2 = 0;
-int buttonstate3 = 0;
 
 void setup() {                
 
