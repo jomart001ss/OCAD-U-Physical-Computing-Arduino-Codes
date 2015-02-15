@@ -1,0 +1,51 @@
+import processing.video.*;
+import cc.arduino.*;
+PGraphics mask;
+float x = 0;
+Movie movie;
+
+void setup() {
+  size(720, 480);
+  noCursor();
+  movie= new Movie(this, "Pokemon.mov");
+  movie.loop();
+  movie.read();
+  movie.play();
+  int reading;
+  reading = arduino.analogRead(0);
+
+}
+void draw() {
+
+  image(movie, 0, 0, displayWidth, displayHeight );
+
+
+  //add stripes
+  
+
+  
+  for (int i=0; i<5; i++);
+  {
+    if(reading >= 50){
+      stroke(random(reading), random(reading), random(reading));
+noFill();
+  frameRate (30) ;
+    fill(random(0, 255), random(0, 255), random(0, 255));
+    ellipse(mouseX, mouseY, x, x);
+    ellipse(mouseY, mouseX, x, x);
+    ellipse(width-mouseY, height-mouseX, x, x);
+    ellipse(width-mouseX, height-mouseY, x, x);
+    ellipse(width-mouseY, mouseX, x, x);
+    ellipse(mouseX, height-mouseY, x, x);
+    ellipse(mouseY, height-mouseX, x, x);
+    ellipse(width-mouseX, mouseY, x, x);
+  }
+  else{
+    reading == 0;
+  }
+}
+}
+
+void movieEvent(Movie m) {
+  m.read();
+}
